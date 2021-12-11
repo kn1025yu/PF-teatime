@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   end
 
   resources :post_images, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
-    resource :favorites, only: [:create, :destroy]
+    resource :bookmarks, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
-  
+
   resources :relationships, only: [:create, :destroy]
-  
+
   get '/search', to: 'searchs#search'
 
   post '/posts/new', to: 'posts#create', as: :create
