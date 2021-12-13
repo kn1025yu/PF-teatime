@@ -6,7 +6,13 @@ class PostImagesController < ApplicationController
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
-    @post_image.save
+    tag_list = params[:post][:tag_name].split(nil)
+    if @post_image.save
+      @post.save_tag(tag_list)                         
+      redirect_back(fallback_location: root_path)          
+    else
+      redirect_back(fallback_location: root_path)          
+    end
     redirect_to post_images_path
   end
 
@@ -28,7 +34,7 @@ class PostImagesController < ApplicationController
   private
 
   def post_image_params
-    params.require(:post_image).permit(:shop_name, :image, :caption)
+    params.require(:post_image).permit(:image_id, :content)
   end
 
 end

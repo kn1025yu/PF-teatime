@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resource :bookmarks, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
+  
+  resources :tags do
+    get 'post_images', to: 'post_images#search'
+  end
 
   resources :relationships, only: [:create, :destroy]
 

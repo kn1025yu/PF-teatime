@@ -7,6 +7,11 @@ class User < ApplicationRecord
   has_many :post_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  
+  #ブックマークしているか否かの条件分岐
+  def bookmarks_by?(post_images_id)
+    likes.where(post_images_id: post_images_id).exists?
+  end
 
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
