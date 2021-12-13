@@ -1,0 +1,26 @@
+<h3>タグリスト<h3>
+<%= @tag_list.each do |list| %>
+  <span>
+    <%= link_to list.tag_name, tag_posts_path(tag_id: list.id) %>
+    <%= "(#{list.posts.count})" %>
+　</span>
+<% end %>
+<hr>
+
+<!--投稿フォーム-->
+<h3>投稿する<h3>
+<%= form_with(model: @post_image, url: posts_path, local: true) do |f| %>
+  <%= f.text_area :content %>
+  <br>
+  <%= "スペースを入力することで複数のタグを付けることができます。" %>
+  <%= "例：音楽 文芸 スポーツ" %>
+  <%= f.text_field :tag_name %>
+  <br>
+  <%= f.submit %>
+<% end %>
+<hr>
+
+<h3>投稿一覧<h3>
+<%= @posts.each do |post| %>
+  <%= link_to post_image.content, post %>
+<% end %>

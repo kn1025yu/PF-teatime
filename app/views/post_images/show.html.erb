@@ -1,0 +1,16 @@
+<h1>投稿詳細</h1>
+
+<p><%= @post_image.content %>
+
+<br>
+
+<%= "タグ: " %>
+<%= @post_tags.each do |tag| %>
+  <span>
+    <%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id) %>
+    <%= "(#{tag.posts.count})" %>
+　</span>
+<% end %>
+<hr>
+
+<%= link_to 'back', root_path %>
