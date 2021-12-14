@@ -30,10 +30,4 @@ class PostImage < ApplicationRecord
     end
   end
   
-  def search
-    @tag_list = Tag.all #投稿一覧表示ページで全てのタグを表示するために、タグを全取得
-    @tag = Tag.find(params[:tag_id]) #クリックしたタグを取得
-    @post_images = @tag.post_images.all #クリックしたタグに紐付けられた投稿を全て表示
-  end
-  
 end

@@ -17,7 +17,8 @@ class PostImagesController < ApplicationController
   end
 
   def index
-    @post_images = PostImage.all
+    @post_image = PostImage.new
+    @post_images = Post.where(user_id: [*current_user.following_ids])
   end
 
   def show
@@ -30,7 +31,13 @@ class PostImagesController < ApplicationController
     @post_image.destroy
     redirect_to post_images_path
   end
-
+  
+  def search
+    @tag_list = Tag.all #投稿一覧表示ページで全てのタグを表示するために、タグを全取得
+    @tag = Tag.find(params[:tag_id]) #クリックしたタグを取得
+    @post_images = @tag.post_images.all #クリックしたタグに紐付けられた投稿を全て表示
+  end
+  
   private
 
   def post_image_params
