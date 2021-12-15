@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'homes#top'
-  get 'home/about' => 'homes#about'
-
+  get   'inquiry'         => 'inquiry#index'     # 入力画面
+  post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
+  post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
+  
+  
   resources :users, only: [:index, :show, :edit, :update] do
     member do
       get :followings, :followers
