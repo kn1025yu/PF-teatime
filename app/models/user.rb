@@ -8,11 +8,6 @@ class User < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmarked_post_images, through: :bookmarks, source: :post_image
-  #ブックマークしているか否かの条件分岐
-  def bookmarks_by?(post_images_id)
-    likes.where(post_images_id: post_images_id).exists?
-  end
-
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
@@ -31,6 +26,11 @@ class User < ApplicationRecord
 
   def following?(other_user)
     self.followings.include?(other_user)
+  end
+
+  #ブックマークしているか否かの条件分岐
+  def bookmarks_by?(post_images_id)
+    bookmarks.where(post_images_id: post_images_id).exists?
   end
 
   attachment :profile_image
