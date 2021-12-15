@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 mt-3">
+
+      <h4 class="mb-4">User Profile</h4>
+
+      <%= form_with model: @end_user, url: end_users_update_path, method: :PATCH do |f| %>
+
+        <table class="table table-borderless">
+          <tr>
+            <td><%= f.label "user name" %></td>
+            <td><%= f.text_field :name, class: "form-control" %></td>
+          </tr>
+          
+          <tr>
+            <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
+            <label for="inputImage">Image</label>
+            <%= f.attachment_field :profile_image, placeholder: "Image" %>
+          </tr>
+          
+          <tr>
+            <td><%= f.label "email" %></td>
+            <td><%= f.text_field :email, class: "form-control" %></td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><%= f.label "introduction" %></td>
+            <td><%= f.text_field :introduction, class: "form-control" %></td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td><%= f.submit 'Update',class: "btn btn-success rounded-pill mt-3" %></td>
+          </tr>
+        </table>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

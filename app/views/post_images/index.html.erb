@@ -23,14 +23,14 @@
           <% @post_images.each do |post_image| %>
             <tr>
               <td>
-              <%= link_to user_path(book.user.id) do %>
-                <%= attachment_image_tag book.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+              <%= link_to user_path(post_image.user.id) do %>
+                <%= attachment_image_tag post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
               <% end %>
               </td>
-              <td><%= link_to book.title, book_path(book.id) %></td>
-              <td><%= book.body %></td>
-              <td class="favorite-btn"><%= render "favorites/favorites", book: book %></td>
-              <td>コメント数: <%= book.book_comments.count %></td>
+              <td><%= link_to post_image.title, post_image_path(post_image.id) %></td>
+              <td><%= post_image.content %></td>
+              <td class="favorite-btn"><%= render "bookmarks/bookmark", post_image: post_image %></td>
+              <td>コメント数: <%= post_image.post_comments.count %></td>
             </tr>
           <% end %>
         </tbody>

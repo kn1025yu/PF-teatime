@@ -1,0 +1,9 @@
+<% if post_image.bookmarked_by?(current_user) %>
+  <%= link_to book_favorites_path(post_image), method: :delete, class: "fas fa-heart heart_red",remote: true do %>
+  <%= post_images.bookmarks.count %>
+  <% end %>
+<% else %>
+  <%= link_to post_image_favorites_path(post_image), method: :post, class: "fas fa-heart heart_blue", remote: true do %>
+  <%= post_image.bookmarks.count %>
+  <% end %>
+<% end %>
