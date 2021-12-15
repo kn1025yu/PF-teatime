@@ -18,7 +18,8 @@ class PostImagesController < ApplicationController
 
   def index
     @post_image = PostImage.new
-    @post_images = Post.where(user_id: [*current_user.following_ids])
+    #フォローしているユーザーと自分の投稿
+    @posts = Post.where(user_id: [current_user.id, *current_user.following_ids])
   end
 
   def show

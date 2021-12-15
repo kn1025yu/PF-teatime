@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :post_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  
+  has_many :bookmarked_post_images, through: :bookmarks, source: :post_image
   #ブックマークしているか否かの条件分岐
   def bookmarks_by?(post_images_id)
     likes.where(post_images_id: post_images_id).exists?

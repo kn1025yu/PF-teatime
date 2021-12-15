@@ -7,6 +7,7 @@ class PostImage < ApplicationRecord
   #throughオプションでtagsと関連付け
   has_many :tags, through: :tag_maps
   has_many :bookmarks, dependent: :destroy
+  has_many :bookmarked_users, through: :books, source: :user
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
