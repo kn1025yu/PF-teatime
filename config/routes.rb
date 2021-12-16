@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions', registrations: "users/registrations",
+  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'homes#top'
   get   'inquiry'         => 'inquiry#index'     # 入力画面
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update] do
     member do
       get :followings, :followers
-      get :bookmarks
     end
   end
 
@@ -28,5 +28,4 @@ Rails.application.routes.draw do
 
   get '/search', to: 'searchs#search'
 
-  post '/posts/new', to: 'posts#create', as: :create
 end

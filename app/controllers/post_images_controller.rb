@@ -1,4 +1,7 @@
 class PostImagesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  
   def new
     @post_image = PostImage.new
   end
@@ -23,12 +26,30 @@ class PostImagesController < ApplicationController
   end
 
   def show
+    @user = @post_image.user
     @post_image = PostImage.find(params[:id])
     @post_comment = PostComment.new
   end
+  
+  def edit
+    if @post_image.user == current_user
+      render :edit
+    else
+      redirect_to post_images_path
+    end
+  end
+
+  def update
+    if @post_image.update(post_image_params)
+    redirect_to post_image_path(@post_image), notice:'successfully'
+    else
+    @post_images = PostImage.all
+    flash.now[:alert] = 'unsuccessfully'
+    render :edit
+    end
+  end
 
   def destroy
-    @post_image = PostImage.find(params[:id])
     @post_image.destroy
     redirect_to post_images_path
   end
@@ -43,6 +64,10 @@ class PostImagesController < ApplicationController
 
   def post_image_params
     params.require(:post_image).permit(:image_id, :content)
+  end
+  
+  def ensure_correct_user
+    @post_image = PostImage.find(params[:id])
   end
 
 end

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 mt-3">
+
+      <h4 class="mb-4">会員情報編集</h4>
+
+      <%= form_with model: @user, method: :PATCH do |f| %>
+
+        <table class="table table-borderless">
+          <tr>
+            <td><%= f.label "user name" %></td>
+            <td><%= f.text_field :name, class: "form-control" %></td>
+          </tr>
+
+          <tr>
+            <%= attachment_image_tag @user, :profile_image, fallback: "no_image.png", size: "150x150" %>
+            <td><%= f.label "profile image" %></td>
+            <td><%= f.attachment_field :profile_image, placeholder: "Image" %></td>
+          </tr>
+
+          <tr>
+            <td><%= f.label "introduction" %></td>
+            <td><%= f.text_area :introduction, class: "form-control" %></td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td><%= f.submit '編集内容を保存',class: "btn btn-success rounded-pill mt-3" %></td>
+          </tr>
+        </table>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

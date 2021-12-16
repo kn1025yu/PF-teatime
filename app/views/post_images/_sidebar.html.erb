@@ -1,6 +1,6 @@
 <div class="col-md-3">
-  <h2>User info</h2>
-    <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.png", size: "60x60" %>
+  <br>
+  <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.png", size: "150x150" %>
     <table class="table">
       <tbody>
         <tr>
@@ -35,7 +35,7 @@
           <i class="fas fa-user-cog"></i>
         <% end %>
       <% else %>
-        <%= render 'relationships/follow_button', user: user %>
+        <%= render 'relationships/follow', user: user %>
       <% end %>
     </div>
 
@@ -43,7 +43,7 @@
   <%= form_with model: post_image, local:true do |f| %>
   <%= f.text_field :title, placeholder: "タイトル" %>
   <%= f.text_field :tag_name, placeholder: "タグ" %>
-  <%= f.text_area :content, size: '10x10', placeholder: "本文" %>
+  <%= f.text_area :content, size: '30x10', placeholder: "本文" %><br>
   <%= f.submit '投稿', class: 'btn btn-success btn-sm btn-block mb-3' %>
   <% end %>
 </div>
