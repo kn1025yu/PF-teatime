@@ -1,31 +1,32 @@
 <div class="container">
   <strong><%= notice %></strong>
   <div class="row">
-    <div class="col-md-3">
-    </div>
-    <div class="offset-md-1"></div>
-    <div class="col-md-8">
-    <br>
-    <br>
-  		<div class="bg_top">
-  			  <p class="font-text">
-  			    トップページ
-          </p>
-  		</div>
+    <%= render 'post_images/sidebar', post_image: @post_image, user: current_user %>
+    <div class="col-md-8 offset-md-1">
       <br>
-  		<h4 class="recommendation"> 新着投稿</h4><br>
-        <div class="row">
-        <% @post_images.each do |post_image| %>
-         <div class="col-3 mt-3">
-
-            <%= link_to post_image_path(post_image.id) do %>
-              <%= attachment_image_tag user, :image, size: "150x150",  fallback: "no_image.png"%><br>
-            <% end %>
-            <p><%= post_image.title %></p>
-          </div>
-        <% end %>
-        </div>
-        <p><%= link_to "more >>", post_images_path %></p>
-  	</div>
+      <h2>新着投稿</h2>
+      <table class="table-hover table-inverse">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @post_images.each do |post_image| %>
+            <tr>
+              <td>
+                <%= link_to post_image_path(post_image.id) do %>
+                  <%= attachment_image_tag user, :image, size: "150x150",  fallback: "no_image.png"%><br>
+                <% end %>
+              </td>
+              <td><%= post_image.title %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <p><%= link_to "more >>", post_images_path %></p>
+    </div>
   </div>
 </div>

@@ -4,7 +4,4 @@ class HomesController < ApplicationController
     @post_images = PostImage.all.order(created_at: :desc)
   end
 
-  def about
-  end
-
 end
