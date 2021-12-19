@@ -1,7 +1,9 @@
 <div class="container">
   <strong><%= notice %></strong>
   <div class="row">
-    <%= render 'post_images/sidebar', post_image: @post_image, user: current_user %>
+    <% if user_signed_in? %>
+      <%= render 'post_images/sidebar', post_image: @post_image, user: current_user %>
+    <% end %>
     <div class="col-md-8 offset-md-1">
       <br>
       <h2>新着投稿</h2>

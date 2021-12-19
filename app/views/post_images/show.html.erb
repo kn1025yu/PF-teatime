@@ -1,16 +1,42 @@
+<div class="container px-5 px-sm-0">
 <h1>投稿詳細</h1>
-
-<p><%= @post_image.content %>
-
-<br>
-
-<%= "タグ: " %>
-<%= @post_tags.each do |tag| %>
-  <span>
-    <%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id) %>
-    <%= "(#{tag.posts.count})" %>
-　</span>
-<% end %>
-<hr>
-
-<%= link_to 'back', root_path %>
+  <div class="row">
+    <%= render 'post_images/sidebar', post_image: @post_image, user: current_user %>
+      <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Book</th>
+            <th>detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @post_image.title %></td>
+            <td><%= @post_image.content %></td>
+            <td>
+              <%= @post_tags.each do |tag| %>
+                <%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id) %>
+                <%= "(#{tag.posts.count})" %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to @post_image.user.name, user_path(@post_image.user.id) %>
+            </td>
+            <% if @post_image.user == current_user %>
+            <td>
+               <%= link_to 'Edit', edit_post_image_path(@post_image.id), class: 'btn btn-success btn-sm btn-block mb-3' %>
+            </td>
+            <td>
+              <%= link_to 'Destroy', post_image_path(@post_image.id), class: 'btn btn-danger btn-sm btn-block mb-3', method: :delete %>
+            </td>
+            <% end %>
+            <%= link_to 'back', user_path %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

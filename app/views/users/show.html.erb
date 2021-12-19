@@ -1,2 +1,33 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <%= render 'post_images/sidebar', post_image: @post_image, user: current_user %>
+    <div class="col-md-8 offset-md-1">
+      <h2>Posts</h2>
+      <table class="table-hover table-inverse">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+       </thead>
+
+        <tbody>
+          <% @post_images.each do |post_image| %>
+            <tr>
+              <td>
+              <%= link_to user_path(post_image.user.id) do %>
+                <%= attachment_image_tag post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+              <% end %>
+              </td>
+              <td><%= link_to post_image.title, post_image_path(post_image.id) %></td>
+              <td><%= post_image.content %></td>
+              <td id="bookmark-btn"><%= render "bookmarks/bookmark", post_image: post_image %></td>
+              <td>コメント数: <%= post_image.post_comments.count %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
