@@ -13,9 +13,13 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-light mb-2" style="background-color:#045474;">
         <div class="container">
-          <a class="navbar-brand" href="/"><span>TeaTime</span></a>
+          <a class="navbar-brand" href="/">
+            <span>
+              <%= image_tag 'logo07.jpg', :size => '80x80' %>
+            </span>
+          </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -23,7 +27,7 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <li><%= link_to "Home", post_images_path, class:'fas fa-home nav-link text-light' %></li>
-              <li><%= link_to "Users", users_path, class:"fas fa-users nav-link text-light" %></li>
+              <li><%= link_to "Search", search_show_path, class:"fas fa-users nav-link text-light" %></li>
               <li><%= link_to "Posts", new_post_image_path, class:"fas fa-book-open nav-link text-light" %></li>
               <li><%= link_to "Inquiry", inquiry_path, class:"fas fa-link nav-link text-light" %></li>
               <li><%= link_to "Log out", destroy_user_session_path, class:"fas fa-sign-out-alt nav-link text-light", method: :delete %></li>
@@ -38,7 +42,7 @@
           </div>
         </div>
       </nav>
-      <%= render 'searchs/form' %>
+      <%#= render 'searchs/form' %>
     </header>
     <%= yield %>
     <footer>

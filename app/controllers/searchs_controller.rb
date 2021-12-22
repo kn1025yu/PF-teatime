@@ -6,6 +6,10 @@ class SearchsController < ApplicationController
     @records = search_for(@model, @content, @method)
   end
 
+  def show
+    @post_images = PostImage.all
+  end
+
   private
   def search_for(model, content, method)
     if model == 'user'

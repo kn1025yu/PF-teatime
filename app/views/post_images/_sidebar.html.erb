@@ -27,6 +27,14 @@
             <% end %>
           </th>
         </tr>
+        <tr>
+          <th>Bookmarks</th>
+          <th>
+            <%= link_to bookmarks_user_path(user) do %>
+              <%= user.bookmarks.count %>
+            <% end %>
+          </th>
+        </tr>
       </tbody>
     </table>
     <div>

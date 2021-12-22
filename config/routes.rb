@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
 
 
-  resources :users, only: [:index, :show, :edit, :update] do
+  resources :users, only: [:show, :edit, :update] do
     member do
       get :followings, :followers
+      get :bookmarks
     end
   end
 
@@ -24,7 +25,8 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  get '/search', to: 'searchs#search'
+  get 'search', to: 'searchs#search'
+  get 'search/show', to: 'searchs#show'
 
   post '/post_images/new', to: 'post_images#create', as: :create
 

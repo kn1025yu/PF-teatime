@@ -1,7 +1,7 @@
 <% if @model == 'user' %>
   <h3>Users search for "<%= @content %>"</h3>
-  <%= render 'show', users: @records %>
+  <%= render 'user', users: @records %>
 <% else @model == 'post_image' %>
   <h3>Posts search for "<%= @content %>"</h3>
-    <%= render 'index', post_images: @records %>
+    <%= render 'post', post_images: @records %>
 <% end %>

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :set_user, only: [:bookmarks]
 
   def index
@@ -17,14 +16,14 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     unless  @user == current_user
-      redirect_to user_path(current_user)
+      redirect_to session[:previous_url] = request.referer
     end
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-    redirect_to :back, notice:'successfully'
+      redirect_to session[:previous_url], notice:'successfully'
     else
     flash.now[:alert] = 'unsuccessfully'
     render :edit
@@ -34,13 +33,13 @@ class UsersController < ApplicationController
   def followings
     @user = User.find(params[:id])
     @users = @user.followings
-    render 'follow_user'
+    render 'follows'
   end
 
   def followers
     @user = User.find(params[:id])
     @users = @user.followers
-    render 'follower_user'
+    render 'followers'
   end
 
   def bookmarks
