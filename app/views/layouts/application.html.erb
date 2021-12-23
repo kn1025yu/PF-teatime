@@ -27,7 +27,7 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <li><%= link_to "Home", post_images_path, class:'fas fa-home nav-link text-light' %></li>
-              <li><%= link_to "Search", search_show_path, class:"fas fa-users nav-link text-light" %></li>
+              <li><%= link_to "Search", search_show_path, class:"fas fa-search nav-link text-light" %></li>
               <li><%= link_to "Posts", new_post_image_path, class:"fas fa-book-open nav-link text-light" %></li>
               <li><%= link_to "Inquiry", inquiry_path, class:"fas fa-link nav-link text-light" %></li>
               <li><%= link_to "Log out", destroy_user_session_path, class:"fas fa-sign-out-alt nav-link text-light", method: :delete %></li>
