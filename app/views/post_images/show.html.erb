@@ -37,6 +37,11 @@
           </tr>
         </tbody>
       </table>
+      <div>
+          <%= render 'comment', post_comments: @post_image.post_comments %>
+        </div>
+      <div>
+        <%= render 'post_comments/form', post_image: @post_image, post_comment: @post_comment %>
     </div>
   </div>
 </div>

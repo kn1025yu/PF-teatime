@@ -9,9 +9,9 @@ class PostImagesController < ApplicationController
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
-    tag_list = params[:post][:tag_name].split(nil)
+    tag_list = params[:post_image][:tag_name].split(nil)
     if @post_image.save
-      @post.save_tag(tag_list)
+      @post_image.save_tag(tag_list)
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)

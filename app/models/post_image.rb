@@ -9,8 +9,8 @@ class PostImage < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmarked_users, through: :books, source: :user
 
-  def favorited_by?(user)
-    favorites.where(user_id: user.id).exists?
+  def bookmarked_by?(user)
+    bookmarks.where(user_id: user.id).exists?
   end
   
   #postに紐づいているtagの名前を配列として取得

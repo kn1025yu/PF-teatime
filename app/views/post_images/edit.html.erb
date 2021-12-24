@@ -4,29 +4,29 @@
 
       <h4 class="mb-4">User Profile</h4>
 
-      <%= form_with model: @end_user, url: end_users_update_path, method: :PATCH do |f| %>
+      <%= form_with model: @post_image, local: true do |f| %>
 
         <table class="table table-borderless">
           <tr>
-            <td><%= f.label "user name" %></td>
-            <td><%= f.text_field :name, class: "form-control" %></td>
+            <td><%= f.label "Title" %></td>
+            <td><%= f.text_field :title, class: "form-control" %></td>
           </tr>
           
           <tr>
-            <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
+            <%= attachment_image_tag @post_image, :image, fallback: "no_image.jpg", size: "60x60" %>
             <label for="inputImage">Image</label>
-            <%= f.attachment_field :profile_image, placeholder: "Image" %>
+            <%= f.attachment_field :image, placeholder: "Image" %>
           </tr>
           
           <tr>
-            <td><%= f.label "email" %></td>
-            <td><%= f.text_field :email, class: "form-control" %></td>
+            <%= f.label "Tags" %>
+            <%= hidden_field_tag :tag_name, placeholder: "Tags" %>
+          </div>
+          
+          <tr>
+            <td><%= f.label "Content" %></td>
+            <td><%= f.text_field :content, class: "form-control" %></td>
             <td></td>
-          </tr>
-          
-          <tr>
-            <td><%= f.label "introduction" %></td>
-            <td><%= f.text_field :introduction, class: "form-control" %></td>
           </tr>
 
           <tr>
