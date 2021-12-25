@@ -31,4 +31,4 @@
 /config/master.key
 
 #.envを送信しないようにする
-.env
+/.env
