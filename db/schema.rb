@@ -48,11 +48,11 @@ ActiveRecord::Schema.define(version: 2021_12_14_172610) do
   end
 
   create_table "tag_maps", force: :cascade do |t|
-    t.integer "post_id"
+    t.integer "post_image_id"
     t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_tag_maps_on_post_id"
+    t.index ["post_image_id"], name: "index_tag_maps_on_post_image_id"
     t.index ["tag_id"], name: "index_tag_maps_on_tag_id"
   end
 
