@@ -11,18 +11,18 @@
             <td><%= f.label "Title" %></td>
             <td><%= f.text_field :title, class: "form-control" %></td>
           </tr>
-          
+
           <tr>
-            <%= attachment_image_tag @post_image, :image, fallback: "no_image.jpg", size: "60x60" %>
+            <%= attachment_image_tag @post_image, :image, fallback: "no_image.png", size: "60x60" %>
             <label for="inputImage">Image</label>
             <%= f.attachment_field :image, placeholder: "Image" %>
           </tr>
-          
+
           <tr>
-            <%= f.label "Tags" %>
-            <%= hidden_field_tag :tag_name, placeholder: "Tags" %>
-          </div>
-          
+            <td><%= f.label "Tags" %></td>
+            <td><%= f.text_field :tag_name, class: "form-control" %></td>
+          </tr>
+
           <tr>
             <td><%= f.label "Content" %></td>
             <td><%= f.text_field :content, class: "form-control" %></td>

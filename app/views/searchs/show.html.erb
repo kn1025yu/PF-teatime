@@ -21,7 +21,7 @@
                 <%= attachment_image_tag post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.png", size: "100x100" %>
               <% end %>
               </td>
-              <td><%= link_to post_image.title, post_image_path(post_image.id) %></td>
+              <td><%= link_to post_image.title || 'title', post_image_path(post_image.id) %></td>
               <td><%= post_image.content %></td>
               <td id="bookmark-btn"><%= render "bookmarks/bookmark", post_image: post_image %></td>
               <td>コメント数: <%= post_image.post_comments.count %></td>

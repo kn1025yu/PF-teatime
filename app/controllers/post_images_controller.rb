@@ -7,16 +7,15 @@ class PostImagesController < ApplicationController
   end
 
   def create
-    @post_image = PostImage.new(post_image_params)
+    @post_image = PostImage.new(post_image_params.reject{ |key, _| key == 'tag_name'})
     @post_image.user_id = current_user.id
     tag_list = params[:post_image][:tag_name].split(nil)
     if @post_image.save
       @post_image.save_tag(tag_list)
-      redirect_back(fallback_location: root_path)
+      redirect_to post_images_path
     else
       redirect_back(fallback_location: root_path)
     end
-    redirect_to post_images_path
   end
 
   def index
@@ -26,8 +25,8 @@ class PostImagesController < ApplicationController
   end
 
   def show
-    @user = @post_image.user
     @post_image = PostImage.find(params[:id])
+    @user = @post_image.user
     @post_comment = PostComment.new
   end
 
@@ -40,7 +39,9 @@ class PostImagesController < ApplicationController
   end
 
   def update
-    if @post_image.update(post_image_params)
+    if @post_image.update(post_image_params.reject{ |key, _| key == 'tag_name'})
+      tag_list = params[:post_image][:tag_name].split(nil)
+      @post_image.save_tag(tag_list)
     redirect_to post_image_path(@post_image), notice:'successfully'
     else
     @post_images = PostImage.all
@@ -63,7 +64,7 @@ class PostImagesController < ApplicationController
   private
 
   def post_image_params
-    params.require(:post_image).permit(:image_id, :content)
+    params.require(:post_image).permit(:image_id, :content, :title, :tag_name)
   end
 
   def ensure_correct_user

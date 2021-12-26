@@ -7,8 +7,8 @@
         <thead>
           <tr>
             <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
+            <th></th>
+            <th></th>
           </tr>
        </thead>
 
@@ -21,7 +21,7 @@
               <% end %>
               </td>
               <td><%= link_to post_image.title, post_image_path(post_image.id) %></td>
-              <td><%= post_image.content %></td>
+              <td><%= tag.tag_name %></td>
               <td id="bookmark-btn"><%= render "bookmarks/bookmark", post_image: post_image %></td>
               <td>コメント数: <%= post_image.post_comments.count %></td>
             </tr>

@@ -1,39 +1,39 @@
 <div class="container px-5 px-sm-0">
-<h1>投稿詳細</h1>
   <div class="row">
     <%= render 'post_images/sidebar', post_image: @post_image, user: current_user %>
       <div class="col-md-8 offset-md-1">
-      <h2>Books</h2>
+      <h2></h2>
       <table>
         <thead>
           <tr>
             <th></th>
-            <th>Book</th>
-            <th>detail</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><%= @post_image.title %></td>
+            <td>title: <%= @post_image.title %></td>
+          </tr>
+          <th></th>
+          <tr>
             <td><%= @post_image.content %></td>
+          </tr>
+          <tr>
             <td>
-              <%= @post_tags.each do |tag| %>
-                <%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id) %>
-                <%= "(#{tag.posts.count})" %>
+              <%= @post_image.tags.each do |tag| %>
+                <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id) %>
+                <%= "(#{tag.post_images.count})" %>
               <% end %>
             </td>
-            <td>
-              <%= link_to @post_image.user.name, user_path(@post_image.user.id) %>
-            </td>
+          </tr>
+          <tr>
             <% if @post_image.user == current_user %>
             <td>
-               <%= link_to 'Edit', edit_post_image_path(@post_image.id), class: 'btn btn-success btn-sm btn-block mb-3' %>
-            </td>
-            <td>
-              <%= link_to 'Destroy', post_image_path(@post_image.id), class: 'btn btn-danger btn-sm btn-block mb-3', method: :delete %>
+               <%= link_to 'Edit', edit_post_image_path(@post_image.id), class: 'btn btn-success btn-sm mt-3 mb-3 mr-3' %>
+              <%= link_to 'Destroy', post_image_path(@post_image.id), class: 'btn btn-danger btn-sm mt-3 mb-3', method: :delete %>
             </td>
             <% end %>
-            <%= link_to 'back', user_path %>
           </tr>
         </tbody>
       </table>
@@ -41,7 +41,9 @@
           <%= render 'comment', post_comments: @post_image.post_comments %>
         </div>
       <div>
-        <%= render 'post_comments/form', post_image: @post_image, post_comment: @post_comment %>
+        <%= render 'post_comments/form', post_image: @post_image, post_image_comment: @post_comment %>
     </div>
+    <br>
+    <%= link_to 'back', user_path(@user) %>
   </div>
 </div>
