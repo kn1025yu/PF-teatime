@@ -13,6 +13,9 @@
             <td><%= f.text_field :tag_name, placeholder: "タグ" %></td>
           </tr>
           <tr>
+            <td><%= f.attachment_field :image %></td>
+          </tr>
+          <tr>
             <td><%= f.text_area :content, size: '30x10', placeholder: "本文" %></td>
           </tr>
         </table>

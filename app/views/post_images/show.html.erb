@@ -20,6 +20,9 @@
             <td><%= @post_image.content %></td>
           </tr>
           <tr>
+            <td><%= attachment_image_tag @post_image, :image %></td>
+          </tr>
+          <tr>
             <td>
               <% @post_image.tags.each do |tag| %>
                 <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id) %>
