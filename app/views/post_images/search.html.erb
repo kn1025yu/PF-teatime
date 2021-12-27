@@ -19,11 +19,18 @@
               <%= link_to list.tag_name, tag_post_images_path(post_image_tag_id: list.id) %>
               </td>
               <td><%= "(#{list.post_images.count})" %></td>
-              <td><% @post_images.each do |post_image| %></td>
-              <td><%= link_to post_image.title, post_image_path(post_image.id) %></td>
-              <% end %>
             </tr>
           <% end %>
+        </tbody>
+        <tbody>
+          <h4></h4>
+          <tr>
+            <td><% @post_images.each do |post_image| %></td>
+          </tr>
+          <tr>
+            <td><%= link_to post_image.title, post_image_path(post_image.id) %></td>
+            <% end %>
+          </tr>
         </tbody>
       </table>
     </div>
