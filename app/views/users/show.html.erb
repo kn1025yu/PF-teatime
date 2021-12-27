@@ -2,7 +2,7 @@
   <div class="row">
     <%= render 'post_images/sidebar', post_image: @post_image, user: @user %>
     <div class="col-md-8 offset-md-1">
-      <h2>Posts</h2>
+      <h2><%= @user.name %>'s Post</h2>
       <table class="table-hover table-inverse">
         <thead>
           <tr>

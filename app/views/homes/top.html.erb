@@ -6,7 +6,7 @@
     <% end %>
     <div class="col-md-8 offset-md-1">
       <br>
-      <h2>新着投稿</h2>
+      <h3>New</h3>
       <table class="table-hover table-inverse">
         <thead>
           <tr>
@@ -31,7 +31,7 @@
       <% if user_signed_in? %>
         <p><%= link_to "more >>", post_images_path %></p>
       <% else %>
-              <p><%= link_to "more >>", new_user_session_path %></p>
+        <p><%= link_to "more >>", new_user_session_path %></p>
       <% end %>
     </div>
   </div>

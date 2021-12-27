@@ -21,7 +21,7 @@
           </tr>
           <tr>
             <td>
-              <%= @post_image.tags.each do |tag| %>
+              <% @post_image.tags.each do |tag| %>
                 <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id) %>
                 <%= "(#{tag.post_images.count})" %>
               <% end %>
