@@ -24,12 +24,13 @@
           <% @post_images.each do |post_image| %>
             <tr>
               <td>
-              <%= link_to user_path(post_image.user.id) do %>
-                <%= attachment_image_tag post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.png", size: "100x100" %>
-              <% end %>
+                <%= link_to user_path(post_image.user.id) do %>
+                  <%= attachment_image_tag post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.png", size: "100x100" %>
+                <% end %>
               </td>
+              <td></td>
               <td><%= link_to post_image.title, post_image_path(post_image.id) %></td>
-              <td><%= post_image.content %></td>
+              <td></td>
               <td id="bookmark-btn"><%= render "bookmarks/bookmark", post_image: post_image %></td>
               <td>コメント数: <%= post_image.post_comments.count %></td>
             </tr>
