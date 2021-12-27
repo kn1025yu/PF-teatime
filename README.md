@@ -9,7 +9,7 @@
 Twitterやインスタ等のSNSは現代人には欠かせない情報源となっており、親しみがあり見やすさと使いやすさを考えて機能はシンプルなものにしています。
 好きなユーザのフォローが可能で、投稿一覧には自分のフォローしているユーザの投稿が出てきます。
 投稿にはコメントを残すことができ、お気に入りの投稿にブックマークをつけて後から見返すことができます。
-検索ではユーザを検索できるほか、用途(タグやキーワード)に合わせてユーザの投稿も検索可能です。
+検索ではユーザを検索できるほか、ユーザの投稿も検索可能です。
 
 ### サイトテーマ
 紅茶についての情報を総合的に網羅できるようなSNS
@@ -43,4 +43,4 @@ https://docs.google.com/spreadsheets/d/1B-QAmbqOv_zvESkc28bsLQ7v0ocd9F_t3R9kJqtz
 - https://www.pakutaso.com/
 - https://unsplash.com/
 - https://www.foodiesfeed.com/
-- 
+- https://fonts.google.com/?subset=japanese
