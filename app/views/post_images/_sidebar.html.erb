@@ -40,7 +40,7 @@
     <div>
       <% if current_user == user %>
         <%= link_to edit_user_path(user.id), class:"btn btn-outline-secondary btn-block" do %>
-          <i class="fas fa-user-cog"></i>
+          <i class="fas fa-cogs"></i>
         <% end %>
       <% else %>
         <%= render 'relationships/follow_button', user: user %>
