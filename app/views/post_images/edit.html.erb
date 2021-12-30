@@ -15,7 +15,7 @@
           <tr>
             <%= attachment_image_tag @post_image, :image, fallback: "no_image.png", size: "60x60" %>
             <label for="inputImage">Image</label>
-            <%= f.attachment_field :image, placeholder: "Image" %>
+            <%= f.file_field :image, placeholder: "Image" %>
           </tr>
 
           <tr>
