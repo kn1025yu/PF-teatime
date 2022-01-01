@@ -16,7 +16,7 @@
             <tr>
               <% @user.followings.each do |user| %>
                 <th>
-                  <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.png", size: "60x60" %>
+                  <%= attachment_image_tag user, :profile_image, class: "rounded-circle", format: 'jpeg', fallback: "no_image.png", size: "60x60" %>
                 </th>
                 <th><%= user.name %></th>
                 <th><%= "フォロー数: #{@user.followings.count}" %></th>

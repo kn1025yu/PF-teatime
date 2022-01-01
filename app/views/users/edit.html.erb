@@ -13,7 +13,7 @@
           </tr>
 
           <tr>
-            <%= attachment_image_tag @user, :profile_image, fallback: "no_image.png", size: "150x150" %>
+            <%= attachment_image_tag @user, :profile_image, class: "rounded-circle", fallback: "no_image.png", size: "150x150" %>
             <td><%= f.label "profile image" %></td>
             <td><%= f.attachment_field :profile_image, placeholder: "Image" %></td>
           </tr>
