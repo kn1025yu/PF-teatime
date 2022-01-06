@@ -42,11 +42,11 @@
       </table>
       <div>
           <%= render 'comment', post_comments: @post_image.post_comments %>
-        </div>
+      </div>
       <div>
         <%= render 'post_comments/form', post_image: @post_image, post_image_comment: @post_comment %>
     </div>
     <br>
-    <%= link_to 'back', user_path(@user) %>
+    <%= link_to 'back', :back %>
   </div>
 </div>
