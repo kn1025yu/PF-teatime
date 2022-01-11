@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:bookmarks]
+  before_action :set_user, only: [:bookmarks, :show, :edit, :update, :followings, :followers ]
 
   def index
     @users = User.all
@@ -8,20 +8,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @post_images = @user.post_images
     @post_image = PostImage.new
   end
 
   def edit
-    @user = User.find(params[:id])
     unless  @user == current_user
       redirect_to session[:previous_url] = request.referer
     end
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to session[:previous_url], notice:'successfully'
     else
@@ -31,13 +28,11 @@ class UsersController < ApplicationController
   end
 
   def followings
-    @user = User.find(params[:id])
     @users = @user.followings
     render 'follows'
   end
 
   def followers
-    @user = User.find(params[:id])
     @users = @user.followers
     render 'followers'
   end
