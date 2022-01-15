@@ -20,7 +20,7 @@
             <tr>
               <td>
                 <%= link_to post_image_path(post_image.id) do %>
-                  <%= attachment_image_tag post_image.user, :profile_image, class: "rounded-circle", size: "150x150",  fallback: "no_image.png" %><br>
+                  <%= attachment_image_tag post_image.user, :profile_image, class: "rounded-circle", size: "100x100",  fallback: "no_image.png" %><br>
                 <% end %>
               </td>
               <td><%= post_image.title %></td>
