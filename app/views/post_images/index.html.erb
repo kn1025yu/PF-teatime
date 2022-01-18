@@ -28,7 +28,7 @@
                   <%= attachment_image_tag post_image.user, :profile_image, class: "rounded-circle", format: 'jpeg', fallback: "no_image.png", size: "100x100" %>
                 <% end %>
               </td>
-              <td></td>
+              <td><%= post_image.user.name %></td>
               <td><%= link_to post_image.title, post_image_path(post_image.id) %></td>
               <td></td>
               <td id="bookmark-btn"><%= render "bookmarks/bookmark", post_image: post_image %></td>
