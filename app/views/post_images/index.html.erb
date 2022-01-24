@@ -25,11 +25,18 @@
             <tr>
               <td>
                 <%= link_to user_path(post_image.user.id) do %>
-                  <%= attachment_image_tag post_image.user, :profile_image, class: "rounded-circle", format: 'jpeg', fallback: "no_image.png", size: "100x100" %>
+                  <%= attachment_image_tag post_image.user, :profile_image, class: "rounded-circle", format: 'jpeg', fallback: "no_image.png", size: "50x50" %>
                 <% end %>
               </td>
               <td><%= post_image.user.name %></td>
-              <td><%= link_to post_image.title, post_image_path(post_image.id) %></td>
+            </tr>
+            <th></th>
+            <tr>
+              <td></td>
+              <td>title: <%= link_to post_image.title, post_image_path(post_image.id) %></td>
+            </tr>
+            <th></th>
+            <tr>
               <td></td>
               <td id="bookmark-btn"><%= render "bookmarks/bookmark", post_image: post_image %></td>
               <td>コメント数: <%= post_image.post_comments.count %></td>
