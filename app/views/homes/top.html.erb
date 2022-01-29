@@ -27,7 +27,7 @@
             </tr>
             <tr>
               <td></td>
-              <td><%= post_image.title %></td>
+              <td>title: <%= link_to post_image.title, post_image_path(post_image.id) %></td>
             </tr>
           <% end %>
         </tbody>
