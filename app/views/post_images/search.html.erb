@@ -12,16 +12,12 @@
           </tr>
        </thead>
 
-        <tbody>
-          <% @tag_list.each do |list| %>
-            <tr>
-              <td>
-              <%= link_to list.tag_name, tag_post_images_path(post_image_tag_id: list.id) %>
-              </td>
-              <td><%= "(#{list.post_images.count})" %></td>
-            </tr>
-          <% end %>
-        </tbody>
+        <%= ("-") %>
+        <strong>
+          <%= ("#{@tag.tag_name}") %>
+        </strong>
+        <%= ("- がタグ付けされた投稿一覧") %><br />
+        
         <tbody>
           <h4></h4>
           <tr>
