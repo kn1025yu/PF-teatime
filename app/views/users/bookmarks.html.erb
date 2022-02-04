@@ -2,6 +2,9 @@
   <div class="row">
     <div class="col-md-8 offset-md-1">
       <h2>Bookmarks</h2>
+      <% if @post_images.empty? %>
+        <span>ブックマークはありません</span>
+      <% end %>
       <table class="table-hover table-inverse">
         <thead>
           <tr>
@@ -16,7 +19,7 @@
             <tr>
               <td>
               <%= link_to user_path(post_image.user.id) do %>
-                <%= attachment_image_tag post_image.user, :profile_image, class: "rounded-circle", format: 'jpeg', fallback: "no_image.png", size: "100x100" %>
+                <%= attachment_image_tag post_image.user, :profile_image, class: "rounded-circle", format: 'jpeg', fallback: "no_image.png", size: "50x50" %>
               <% end %>
               </td>
               <td><%= link_to post_image.title, post_image_path(post_image.id) %></td>
