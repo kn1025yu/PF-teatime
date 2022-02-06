@@ -12,9 +12,9 @@
               <th>name</th>
             </tr>
           </thead>
-          <thead>
-            <tr>
-              <% @user.followings.each do |user| %>
+          <tbody>
+            <% @user.followings.each do |user| %>
+              <tr>
                 <td>
                   <%= attachment_image_tag user, :profile_image, class: "rounded-circle", format: 'jpeg', fallback: "no_image.png", size: "50x50" %>
                 </td>
@@ -24,7 +24,7 @@
                 <td><%= link_to 'User page', user_path(user) %></td>
               <% end %>
             </tr>
-          </thead>
+          </tbody>
         <% end %>
       </table>
     </div>
