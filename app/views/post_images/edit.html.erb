@@ -13,7 +13,7 @@
           </tr>
 
           <tr>
-            <%= attachment_image_tag @post_image, :image, class: "rounded-circle", fallback: "no_image.png", size: "60x60" %>
+            <%= attachment_image_tag @post_image, :image, class: "rounded-circle", fallback: "no_image.png", size: "50x50" %>
             <label for="inputImage">Image</label>
             <%= f.file_field :image, placeholder: "Image" %>
           </tr>
@@ -38,6 +38,6 @@
       <% end %>
       <%= link_to 'back', :back %>
     </div>
-    
+
   </div>
 </div>
