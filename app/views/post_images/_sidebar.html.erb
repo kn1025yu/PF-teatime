@@ -4,15 +4,15 @@
     <table class="table">
       <tbody>
         <tr>
-          <th>name</th>
+          <th>Name</th>
 	        <th><%= user.name %></th>
 	      </tr>
 	      <tr>
-	        <th>introduction</th>
+	        <th>Introduction</th>
 	        <th><%= user.introduction %></th>
 	      </tr>
 	      <tr>
-	        <th>follows</th>
+	        <th>Follows</th>
 	        <th>
 	          <%= link_to followings_user_path(user) do %>
               <%= user.followings.count %>
@@ -20,7 +20,7 @@
           </th>
         </tr>
         <tr>
-          <th>followers</th>
+          <th>Followers</th>
           <th>
             <%= link_to followers_user_path(user) do %>
               <%= user.followers.count %>
